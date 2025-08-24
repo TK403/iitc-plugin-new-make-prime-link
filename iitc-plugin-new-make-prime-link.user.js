@@ -42,7 +42,7 @@ window.plugin.newMakePrimeLink.compatibles = [
 ];
 
 window.plugin.newMakePrimeLink.setup = function () {
-  if (window.plugin.newMakePrimeLink.compatibles.includes(window.window.script_info.changelog[0].version)) {
+  if (window.plugin.newMakePrimeLink.compatibles.includes(window.script_info.changelog[0].version)) {
     window.makePrimeLink = function (guid, lat, lng) {
       return `https://link.ingress.com/portal/${guid}`;
     };
