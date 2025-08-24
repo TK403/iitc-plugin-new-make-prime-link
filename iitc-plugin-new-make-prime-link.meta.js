@@ -2,7 +2,7 @@
 // @name           IITC plugin: New Scanner Link for Portals
 // @author         TK403
 // @category       Portal Info
-// @version        0.0.1
+// @version        0.0.2
 // @description    Overwrites a new scanner link in the portal details panel.
 // @id             new-make-prime-link
 // @namespace      https://github.com/IITC-CE/ingress-intel-total-conversion

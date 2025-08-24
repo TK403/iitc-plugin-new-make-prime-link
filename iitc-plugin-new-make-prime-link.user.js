@@ -2,7 +2,7 @@
 // @name           IITC plugin: New Scanner Link for Portals
 // @author         TK403
 // @category       Portal Info
-// @version        0.0.1
+// @version        0.0.2
 // @description    Overwrites a new scanner link in the portal details panel.
 // @id             new-make-prime-link
 // @namespace      https://github.com/IITC-CE/ingress-intel-total-conversion
@@ -27,14 +27,22 @@ plugin_info.pluginId = 'new-make-prime-link';
 /* exported setup, changelog --eslint */
 
 var changelog = [
+  {
+    version: '0.0.2',
+    changes: [
+      'Change IITC version checks.',
+    ],
+  },
 ];
 
 window.plugin.newMakePrimeLink = function () {};
 
-window.plugin.newMakePrimeLink.compatibles = ['2025-04-19-124553'];
+window.plugin.newMakePrimeLink.compatibles = [
+  '0.40.0',
+];
 
 window.plugin.newMakePrimeLink.setup = function () {
-  if (window.plugin.newMakePrimeLink.compatibles.includes(window.iitcBuildDate)) {
+  if (window.plugin.newMakePrimeLink.compatibles.includes(window.window.script_info.changelog[0].version)) {
     window.makePrimeLink = function (guid, lat, lng) {
       return `https://link.ingress.com/portal/${guid}`;
     };
