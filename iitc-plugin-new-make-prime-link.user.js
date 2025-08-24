@@ -20,7 +20,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'release';
-plugin_info.dateTimeVersion = '2025-04-19-124553';
+plugin_info.dateTimeVersion = '2025-08-25-023455';
 plugin_info.pluginId = 'new-make-prime-link';
 //END PLUGIN AUTHORS NOTE
 
