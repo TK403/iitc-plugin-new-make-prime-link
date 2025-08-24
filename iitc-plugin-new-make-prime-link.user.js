@@ -6,8 +6,8 @@
 // @description    Overwrites a new scanner link in the portal details panel.
 // @id             new-make-prime-link
 // @namespace      https://github.com/IITC-CE/ingress-intel-total-conversion
-// @updateURL      https://iitc.app/build/release/plugins/xxx.meta.js
-// @downloadURL    https://iitc.app/build/release/plugins/xxx.user.js
+// @updateURL      https://github.com/TK403/iitc-plugin-new-make-prime-link/raw/refs/heads/main/iitc-plugin-new-make-prime-link.meta.js
+// @downloadURL    https://github.com/TK403/iitc-plugin-new-make-prime-link/raw/refs/heads/main/iitc-plugin-new-make-prime-link.user.js
 // @match          https://intel.ingress.com/*
 // @match          https://intel-x.ingress.com/*
 // @grant          none
@@ -29,18 +29,22 @@ plugin_info.pluginId = 'new-make-prime-link';
 var changelog = [
 ];
 
-window.plugin.newScannerLinkPortals = function () {};
+window.plugin.newMakePrimeLink = function () {};
 
+window.plugin.newMakePrimeLink.compatibles = ['2025-04-19-124553'];
 
-window.plugin.newScannerLinkPortals.setup = function () {
-  window.makePrimeLink = function (guid, lat, lng) {
-    return `https://link.ingress.com/portal/${guid}`;
+window.plugin.newMakePrimeLink.setup = function () {
+  if (window.plugin.newMakePrimeLink.compatibles.includes(window.iitcBuildDate)) {
+    window.makePrimeLink = function (guid, lat, lng) {
+      return `https://link.ingress.com/portal/${guid}`;
+    };
+    console.log('newMakePrimeLink: patched.');
+  } else {
+    console.log('newMakePrimeLink: skipped.');    
   };
-
-  console.log('newScannerLinkPortals: started.');
 };
 
-var setup = window.plugin.newScannerLinkPortals.setup;
+var setup = window.plugin.newMakePrimeLink.setup;
 
 setup.info = plugin_info; //add the script info data to the function as a property
 if (typeof changelog !== 'undefined') setup.info.changelog = changelog;
